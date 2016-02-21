@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link href="angularpr1.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="angularpr1.js"></script>
+    </head>
+    <body ng-app="table">
+        <div ng-controller="TableController">
+         <input type="text" placeholder="search name" ng-model="search.Name"  />
+            <input type="text" placeholder="search city" ng-model="search.City"  />
+            <input type="checkbox" ng-model="exactmatch"> Exact Match
+            <br/><br/>
+                <table>
+            <thead>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <th>City</th>
+                </thead>
+            <tbody>
+            <tr ng-repeat="employee in employees | filter:search:exactmatch">
+            <td>{{employee.Name}}</td>
+            <td>{{employee.Gender}}</td>
+            <td>{{employee.Salary}}</td>
+            <td>{{employee.City}}</td>
+            </tr>
+                </tbody>
+        </table>
+            </div>
+    </body>
+</html>

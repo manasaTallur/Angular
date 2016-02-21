@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="store">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl">
+
+<!-- <ul>
+    <li ng-repeat="phone in phones">
+      <span>{{phone.name}}</span>
+      <p>{{phone.snippet}}</p>
+         
+    </li>
+      <p>Total number of phones: {{phones.length}}</p>
+  </ul>
+    <p>Hello, {{name}}!</p> -->
+    
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+        <br/><br/>
+    Sort by:
+          <select ng-model="orderProp">
+            <optiopn value="name">Alphabetical</optiopn>
+            <optiopn value="age">Newest</optiopn>
+        </select>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+        
+      <ul class="phones">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+          </li>
+    </ul>
+
+    </div>
+  </div>
+</div>
+   
+
+
+</body>
+</html>
